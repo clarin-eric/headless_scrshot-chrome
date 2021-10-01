@@ -9,7 +9,7 @@ parser.add_argument('-u', '--url', type=urlparse, help='URL to take screenshot o
 parser.add_argument('-t', '--target', type=PurePath, help='location where to save a screenshot')
 parser.add_argument('-b', '--bin', type=PurePath, help='path to browser binary')
 parser.add_argument('-d', '--driver', type=PurePath, help='path to browser driver')
-parser.add_argument('-r'. '--resolution', type=str, help='output screenshot resolution as comma separated str, e.g. 1920,1080'
+parser.add_argument('-r', '--resolution', type=str, help='output screenshot resolution as comma separated str, e.g. 1920,1080')
 
 args = parser.parse_args()
 
@@ -29,14 +29,11 @@ def get_chrome_options(binary_location: PurePath, window_size: str) -> ChromeOpt
     return options
 
 def get_chrome_driver(driver_path: PurePath, options: ChromeOptions) -> Chrome:
-    if type(driver_path):
-    else:
-        
     return Chrome(
         executable_path=str(driver_path), 
         chrome_options=get_options(options))
 
-def make_screenshot(url, driver, target) -> None
+def make_screenshot(url, driver, target) -> None:
     driver.get(url)
     driver.save_screenshot(target / datetime.fromtimestamp(datetime.now()))
 
